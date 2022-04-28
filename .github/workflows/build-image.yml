@@ -6,14 +6,16 @@ on:
       - main
 #    tags:
 #      - v*
-env:
-  #MESSAGEDB_VERSION: 1.2.6
-  MESSAGEDB_VERSION: test
 
 jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
+      -
+        name: Checkout source code
+        uses: actions/checkout@v2.3.4
+        with:
+          fetch-depth: 0
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
@@ -31,10 +33,18 @@ jobs:
         name: Build
         uses: docker/build-push-action@v2
         with:
+          context: .
           tags: johnbcodes/message-db:latest
+          build-args:
+            - MESSAGE_DB_VERSION=${{ github.ref_name }}
       -
         name: Push GitHub Container Registry
         shell: bash
         run: |
-          docker tag johnbcodes/message-db ghcr.io/johnbcodes/message-db:${{ env.MESSAGEDB_VERSION }}
-          docker push ghcr.io/johnbcodes/message-db:${{ env.MESSAGEDB_VERSION }}
+          docker tag johnbcodes/message-db ghcr.io/johnbcodes/message-db:${{ github.ref_name }}
+          docker push ghcr.io/johnbcodes/message-db:${{ github.ref_name }}
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          prerelease: false
+          title: Latest Message DB Docker Image
