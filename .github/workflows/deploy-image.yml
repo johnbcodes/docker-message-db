@@ -35,16 +35,12 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          tags: johnbcodes/message-db:latest
-          load: true
+          tags: |
+            johnbcodes/message-db:latest
+            johnbcodes/message-db:${{ github.ref_name }}
+          push: true
           build-args: |
             MESSAGE_DB_VERSION=${{ github.ref_name }}
-      -
-        name: Push GitHub Container Registry
-        shell: bash
-        run: |
-          docker tag johnbcodes/message-db ghcr.io/johnbcodes/message-db:${{ github.ref_name }}
-          docker push ghcr.io/johnbcodes/message-db:${{ github.ref_name }}
       -
         name: Create release
         uses: marvinpinto/action-automatic-releases@latest
