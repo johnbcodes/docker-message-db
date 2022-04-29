@@ -47,4 +47,4 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           prerelease: false
-          title: Latest Message DB Docker Image
+          title: Message DB ${{ github.ref_name }}
