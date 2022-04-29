@@ -43,6 +43,8 @@ jobs:
         run: |
           docker tag johnbcodes/message-db ghcr.io/johnbcodes/message-db:${{ github.ref_name }}
           docker push ghcr.io/johnbcodes/message-db:${{ github.ref_name }}
+      -
+        name: Create release
         uses: marvinpinto/action-automatic-releases@latest
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
