@@ -36,8 +36,8 @@ jobs:
         with:
           context: .
           tags: |
-            johnbcodes/message-db:latest
-            johnbcodes/message-db:${{ github.ref_name }}
+            ghcr.io/johnbcodes/message-db:latest
+            ghcr.io/johnbcodes/message-db:${{ github.ref_name }}
           push: true
           build-args: |
             MESSAGE_DB_VERSION=${{ github.ref_name }}
