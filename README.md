@@ -53,3 +53,11 @@ It also supports the Message DB install script environment variables for [DATABA
 ## Updates
 
 I will attempt to add images for new Message DB versions as they arrive. Otherwise, please submit an issue.
+
+## Acknowledgments
+
+Message DB was created by the [Eventide Project](https://eventide-project.org/).
+
+The Dockerfile, PostgreSQL image entry point for Message DB and original documentation was created by [Articulate](https://articulate.com/).
+
+The Github Action CI, publishing of the ghcr.io image, and additional documentation was created by myself.
