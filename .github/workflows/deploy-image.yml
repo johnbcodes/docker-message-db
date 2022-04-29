@@ -1,4 +1,4 @@
-name: Build Image
+name: Build and deploy Docker image
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - "*"
 
 jobs:
-  docker:
+  build-and-deploy-image:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -14,7 +14,7 @@ jobs:
     steps:
       -
         name: Checkout source code
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@latest
         with:
           fetch-depth: 0
       -
