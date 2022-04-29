@@ -33,6 +33,7 @@ jobs:
         with:
           context: .
           tags: johnbcodes/message-db:latest
+          load: true
           build-args: |
             MESSAGE_DB_VERSION=${{ github.ref_name }}
       -
