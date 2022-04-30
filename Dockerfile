@@ -1,6 +1,9 @@
 FROM postgres:latest
 ARG MESSAGE_DB_VERSION
 
+LABEL org.opencontainers.image.description="Message DB on PostgreSQL"
+LABEL version="${MESSAGE_DB_VERSION}"
+
 WORKDIR /usr/src
 ADD https://github.com/message-db/message-db/archive/v${MESSAGE_DB_VERSION}.tar.gz message-db.tar.gz
 RUN tar -xzf message-db.tar.gz

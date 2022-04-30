@@ -35,8 +35,8 @@ services:
     image: ghcr.io/johnbcodes/message-db:1.2.6
     environment:
       POSTGRES_HOST_AUTH_METHOD: trust
-    expose:
-      - 5432
+    ports:
+      - 5432:5432
     volumes:
       - data-postgresql:/var/lib/postgresql/data
 
