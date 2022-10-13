@@ -7,7 +7,7 @@ Docker image for [Message DB](https://github.com/message-db/message-db), built o
 ### Docker command line example
 
 ```bash
-docker pull ghcr.io/johnbcodes/message-db:1.2.6
+docker pull ghcr.io/johnbcodes/message-db:1.3.0
 ```
 
 A tag for the `latest` version is also available.
@@ -15,7 +15,7 @@ A tag for the `latest` version is also available.
 Run it as a container (This does not use a [volume](https://docs.docker.com/storage/volumes/) so the data will NOT persist. It will also remove the container once the process is stopped): 
 
 ```bash
-docker run --rm -it -p 5432:5432 -e POSTGRES_HOST_AUTH_METHOD=trust -e DATABASE_NAME=mydb ghcr.io/johnbcodes/message-db:1.2.6`
+docker run --rm -it -p 5432:5432 -e POSTGRES_HOST_AUTH_METHOD=trust -e DATABASE_NAME=mydb ghcr.io/johnbcodes/message-db:1.3.0`
 ```
 
 ### Docker Compose example
@@ -32,7 +32,7 @@ services:
       - MESSAGE_STORE_URI=postgresql://message_store@message_db:5432/message_store
 
   message_db:
-    image: ghcr.io/johnbcodes/message-db:1.2.6
+    image: ghcr.io/johnbcodes/message-db:1.3.0
     environment:
       POSTGRES_HOST_AUTH_METHOD: trust
     ports:
