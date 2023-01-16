@@ -3,7 +3,7 @@ services:
   db:
     build:
       args:
-        MESSAGE_DB_VERSION: ${MESSAGE_DB_VERSION:-1.2.6}
+        MESSAGE_DB_VERSION: ${MESSAGE_DB_VERSION:-1.3.0}
       context: .
     environment:
       POSTGRES_HOST_AUTH_METHOD: trust
